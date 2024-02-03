@@ -49,12 +49,12 @@ bq mk dsongcpxxx
 
 - **Upload to BigQuery dataset** 
 ```
-bq load -autodetect dsongcpxxx.flights 201501.csv
+bq load -autodetect --source_format=CSV dsongcpxxx.flights 201501.csv
 ```
 ```
-bq load -autodetect dsongcpxxx.flights 201502.csv
+bq load --source_format=CSV --skip_leading_rows=1 --noreplace dsongcpxxx.flights 201502.csv
 ```
 ```
-bq load -autodetect dsongcpxxx.flights 201503.csv
+bq load --source_format=CSV --skip_leading_rows=1 --noreplace dsongcpxxx.flights 201503.csv
 ```
 
