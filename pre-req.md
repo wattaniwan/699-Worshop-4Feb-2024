@@ -36,9 +36,6 @@ chmod +x download.sh
 ./download.sh 2015 2
 ```
 
-```
-./download.sh 2015 3
-```
 
 
 - **Create BigQuery dataset**: xxx is last 3 digits of your student id
@@ -49,12 +46,17 @@ bq mk dsongcpxxx
 
 - **Upload to BigQuery dataset** 
 ```
-bq load -autodetect --source_format=CSV dsongcpxxx.flights 201501.csv
+bq load -autodetect --source_format=CSV dsongcpxxx.flights_raw 202201.csv
 ```
 ```
-bq load --source_format=CSV --skip_leading_rows=1 --noreplace dsongcpxxx.flights 201502.csv
+bq load --source_format=CSV --skip_leading_rows=1 --noreplace dsongcpxxx.flights_raw 202202.csv
+```
+
+- **Clean your space on Cloud Shell**
+```
+rm 202201.csv
 ```
 ```
-bq load --source_format=CSV --skip_leading_rows=1 --noreplace dsongcpxxx.flights 201503.csv
+rm 202202.csv
 ```
 
