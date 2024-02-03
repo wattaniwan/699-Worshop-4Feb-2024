@@ -41,7 +41,7 @@ chmod +x download.sh
 ```
 
 
-- **Create BigQuery dataset** 
+- **Create BigQuery dataset** when xxx : last 3 digits of your student id
 
 ```
 bq mk dsongcpxxx
