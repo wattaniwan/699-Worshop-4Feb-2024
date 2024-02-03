@@ -1,4 +1,9 @@
-- **Open Cloud Shell:** go to your working directory
+- **Open Cloud Shell:** go to your working directory or create new one 
+
+
+```
+mkdir ass4
+```
 
 - **Create download.sh**  
 
@@ -13,7 +18,7 @@ MONTH2=$(printf "%02d" $MONTH)
 TMPDIR=$(mktemp -d)
 
 ZIPFILE=${TMPDIR}/${YEAR}_${MONTH2}.zip
-echo $ZIPFILE
+#echo $ZIPFILE
 
 curl -k -o $ZIPFILE ${BASEURL}_${YEAR}_${MONTH}.zip
 unzip -d $TMPDIR $ZIPFILE
@@ -41,15 +46,15 @@ chmod +x download.sh
 - **Create BigQuery dataset**: xxx is last 3 digits of your student id
 
 ```
-bq mk dsongcp-xxx-ass4
+bq mk dsongcpXXXass4
 ```
 
 - **Upload to BigQuery dataset** 
 ```
-bq load -autodetect --source_format=CSV dsongcp-xxx-ass4.flights_raw 202201.csv
+bq load -autodetect --source_format=CSV dsongcpXXXass4.flights_raw 202201.csv
 ```
 ```
-bq load --source_format=CSV --skip_leading_rows=1 --noreplace dsongcp-xxx-ass4.flights_raw 202202.csv
+bq load --source_format=CSV --skip_leading_rows=1 --noreplace dsongcpXXXass4.flights_raw 202202.csv
 ```
 
 - **Clean your space on Cloud Shell**
